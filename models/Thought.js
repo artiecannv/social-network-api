@@ -1,0 +1,34 @@
+const { Schema, model } = require("mongoose");
+
+const thoughtSchema = new Schema(
+  {
+    thoughtText: {
+      type: String,
+      required: true,
+      minLength: 1,
+      maxLength: 280,
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: (date) => {
+        return date.toLocaleString("en-US", {
+          dateStyle: "long",
+          timeStyle: "medium",
+        });
+      },
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    reactions: [Reaction],
+  },
+  {
+    toJSON: {
+      virtuals: true,
+      getters: true,
+    },
+    id: false,
+  }
+);

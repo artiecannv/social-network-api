@@ -76,7 +76,12 @@ const thoughtObj = () => {
   for (let index = 0; index < thoughts.length; index++) {
     const element = thoughts[index];
     const username = names[index];
-    thoughtArr.push({ thoughtText: element, username: username });
+    const newThought = {
+      thoughtText: element,
+      username: username,
+      reactions: reactionObj(index),
+    };
+    thoughtArr.push(newThought);
   }
   return thoughtArr;
 };

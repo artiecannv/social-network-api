@@ -41,4 +41,4 @@ const thoughts = [
   "Laoreet sit amet cursus sit amet. Sed id semper risus in hendrerit. Justo nec ultrices dui sapien eget mi. Sed vulputate odio ut enim blandit volutpat maecenas.",
 ];
 
-const reactions = [];
+const reactions = ["Wow!", "Cool", "First Post", "LOL", "Angry"];

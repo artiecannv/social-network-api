@@ -43,7 +43,7 @@ const thoughts = [
 
 const reactions = ["Wow!", "Cool", "First Post", "LOL", "Angry"];
 
-const UserObj = () => {
+const userObj = () => {
   const userArr = [];
   for (let index = 0; index < names.length; index++) {
     const element = names[index];
@@ -53,6 +53,32 @@ const UserObj = () => {
   return userArr;
 };
 
+const reactionObj = (index) => {
+  const name = names[index + 1];
+  const name2 = names[index + 2];
+  const reaction1 = Math.floor(Math.random() * reactions.length);
+  const reaction2 = Math.floor(Math.random() * reactions.length);
 
+  return [
+    {
+      reactionBody: reaction1,
+      username: name,
+    },
+    {
+      reactionBody: reaction2,
+      username: name2,
+    },
+  ];
+};
 
-module.exports = { userObj };
+const thoughtObj = () => {
+  const thoughtArr = [];
+  for (let index = 0; index < thoughts.length; index++) {
+    const element = thoughts[index];
+    const username = names[index];
+    thoughtArr.push({ thoughtText: element, username: username });
+  }
+  return thoughtArr;
+};
+
+module.exports = { userObj, thoughtObj };

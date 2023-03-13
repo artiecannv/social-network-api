@@ -42,3 +42,17 @@ const thoughts = [
 ];
 
 const reactions = ["Wow!", "Cool", "First Post", "LOL", "Angry"];
+
+const UserObj = () => {
+  const userArr = [];
+  for (let index = 0; index < names.length; index++) {
+    const element = names[index];
+    const userEmail = `${element}@email.com`;
+    userArr.push({ username: element, email: userEmail });
+  }
+  return userArr;
+};
+
+
+
+module.exports = { userObj };

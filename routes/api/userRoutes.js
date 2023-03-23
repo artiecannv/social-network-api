@@ -9,3 +9,6 @@ const {
   createFriend,
   deleteFriend,
 } = require("../../controllers/userControllers");
+
+
+// "/api/users" router.route

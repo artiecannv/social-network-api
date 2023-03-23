@@ -16,23 +16,31 @@ connection.once("open", async () => {
 
   const userArray = await User.find();
   const thoughtArray = await Thought.find();
-  let counter = 0
 
   for (let i = 0; i < userArray.length; i++) {
     let element;
-    if (i === userArray.length) {
+    if (i === userArray.length - 1) {
       element = userArray[i - 1];
     } else {
       element = userArray[i + 1];
     }
 
-    const elementArray = [element];
-    // await User.findOneAndUpdate(
-    //   { username: userArray[i].username },
-    //   { friends: elementArray }
-    // );
-    console.log(element)
-    console.log(counter++)
+    const elementArray = [element._id];
+    await User.findOneAndUpdate(
+      { username: userArray[i].username },
+      { friends: elementArray }
+    );
+  }
+
+  for (let i = 0; i < thoughtArray.length; i++) {
+    const element = [thoughtArray[i]._id];
+
+    console.log(thoughtArray[i])
+
+    await User.findOneAndUpdate(
+      { username: thoughtArray[i].username },
+      { thoughts: element }
+    );
   }
 
   console.table(users);

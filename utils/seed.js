@@ -34,9 +34,6 @@ connection.once("open", async () => {
 
   for (let i = 0; i < thoughtArray.length; i++) {
     const element = [thoughtArray[i]._id];
-
-    console.log(thoughtArray[i])
-
     await User.findOneAndUpdate(
       { username: thoughtArray[i].username },
       { thoughts: element }

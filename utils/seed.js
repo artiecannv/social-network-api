@@ -11,6 +11,9 @@ connection.once("open", async () => {
   const users = userObj();
   const thoughts = thoughtObj();
 
+  await User.insertMany(users);
+  await Thought.insertMany(thoughts);
+
   console.table(users);
   console.table(thoughts);
   console.info("Database Successfully Seeded! 🌱");

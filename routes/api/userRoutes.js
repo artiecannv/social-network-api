@@ -10,5 +10,14 @@ const {
   deleteFriend,
 } = require("../../controllers/userControllers");
 
+// Routes - /api/users, /api/users/:userId, & /api/users/:userId/friends/:friendId
+router.route("/").get(getUsers).post(createUser);
 
-// "/api/users" router.route
+router.route("/:userId").get(getOneUser).put(updateUser).delete(deleteUser);
+
+router
+  .route("/:userId/friends/:friendId")
+  .post(createFriend)
+  .delete(deleteFriend);
+
+module.exports = router;

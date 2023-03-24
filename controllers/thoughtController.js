@@ -8,7 +8,9 @@ module.exports = {
       .then((thoughts) => {
         res.json(thoughts);
       })
-      .catch((err) => res.status(500).json(err));
+      .catch((err) => {
+        res.status(500).json(err);
+      });
   },
   /* Post/create a new thought,
     push created thought's _id to associated user's thoughts array field */
